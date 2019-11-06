@@ -1,2 +1,4 @@
 **/.env
 **/__generated__
+**/__pycache__
+*.bin

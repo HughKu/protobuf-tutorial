@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+message Birthday {
+    int32 id = 1;
+    DaysOfTheWeek day = 2;
+    MonthOfTheYear month = 3;
+}
+
+enum DaysOfTheWeek {
+    UNKNOWN_DAY = 0;
+    MON = 1;
+    TUE = 2;
+    WES = 3;
+    THR = 4;
+    FRI = 5;
+    SAT = 6;
+    SUN = 7;
+}
+
+enum MonthOfTheYear {
+    UNKNOWN_MONTH = 0;
+    JAN = 1;
+    FAB = 2;
+    MAR = 3;
+    APR = 4;
+    MAY = 5;
+    JUN = 6;
+    JUL = 7;
+    AUG = 8;
+    SEP = 9;
+    OCT = 10;
+    NOV = 11;
+    DEC = 12;
+}

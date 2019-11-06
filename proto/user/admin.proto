@@ -1,6 +1,9 @@
+/*
+ * using proto3 syntax
+ */
 syntax = "proto3";
 
-message Person {
+message Admin {
     string name = 1;
     int32 id = 2;
     string email = 3;
@@ -17,8 +20,4 @@ message Person {
     }
 
     repeated PhoneNumber phones = 4;
-  }
-
-  message AddressBook {
-    repeated Person people = 1;
-  }
+}

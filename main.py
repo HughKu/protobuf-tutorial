@@ -1,24 +1,31 @@
-from python.__generated__ import book_pb2
-person = book_pb2.Person()
-
-person.id = 122
-person.name = "Hugh"
-person.email = "hughku@gmail.com"
+import python.__generated__.user.admin_pb2 as admin_pb2
 
 #
-# - phone #1
+# Make a new instance of Admin
 #
-phone_number = person.phones.add()
-#hone_number = book_pb2.Person.PhoneNumber()
-phone_number.number = "0972xxxxxx"
-phone_number.type = book_pb2.Person.PhoneType.WORK
+admin = admin_pb2.Admin()
 
 #
-# - phone #2
+# Assign value to a scalar field
 #
-phone_number = person.phones.add()
-#hone_number = book_pb2.Person.PhoneNumber()
-phone_number.number = "0988xxxxxx"
-phone_number.type = book_pb2.Person.PhoneType.HOME
+admin.id = 122
+admin.name = "Hugh"
+admin.email = "hughku@gmail.com"
 
-print(person.SerializeToString())
+# method 1 - add a new repeated field
+phone = admin.phones.add()
+phone.number = "abc"
+phone.type = admin_pb2.Admin.PhoneType.WORK
+
+# method 2 - add a new repeated field
+phone = admin_pb2.Admin.PhoneNumber(number="xyz", type=admin_pb2.Admin.PhoneType.HOME)
+admin.phones.extend([phone])
+
+with open("example.bin", "wb") as fp:
+    admin_sent = admin.SerializePartialToString()
+    fp.write(admin_sent)
+
+with open("example.bin", "rb") as fp:
+    admin_received = admin_pb2.Admin()
+    admin_received.ParseFromString(fp.read())
+    print(admin_received)

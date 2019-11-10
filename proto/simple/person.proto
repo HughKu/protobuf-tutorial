@@ -1,23 +1,16 @@
-/*
- * using proto3 syntax
- */
+// Syntax should always be "proto3".
 syntax = "proto3";
 
+// A message of Person.
 message Person {
-    string name = 1;
-    int32 id = 2;
-    string email = 3;
+  string name = 1;
+  int32 id = 2;
+  string email = 3;
 
-    enum PhoneType {
-      MOBILE = 0;
-      HOME = 1;
-      WORK = 2;
-    }
+  // A nested message of PhoneNumber.
+  message PhoneNumber {
+    string number = 1;
+  }
 
-    message PhoneNumber {
-      string number = 1;
-      PhoneType type = 2;
-    }
-
-    repeated PhoneNumber phones = 4;
+  repeated PhoneNumber phones = 4;
 }

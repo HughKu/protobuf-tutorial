@@ -30,10 +30,10 @@ print(f"**** Processed message: \n{person}")
 #
 # write and read message
 with open("simple_message.bin", "wb") as fp:
-    person_sent = person.SerializePartialToString()
-    fp.write(person_sent)
+  person_sent = person.SerializePartialToString()
+  fp.write(person_sent)
 
 with open("simple_message.bin", "rb") as fp:
-    person_received = person_pb2.Person()
-    person_received.ParseFromString(fp.read())
-    print(f"**** De-serialized message: \n{person_received}")
+  person_received = person_pb2.Person()
+  person_received.ParseFromString(fp.read())
+  print(f"**** De-serialized message: \n{person_received}")

@@ -1,31 +1,39 @@
-from python.__generated__.user import admin_pb2
-#
-# Make a new instance of Admin
-#
-admin = admin_pb2.Admin()
+from python.__generated__.simple import person_pb2
 
 #
-# Assign value to a scalar field
+# - New message
 #
-admin.id = 122
-admin.name = "Hugh"
-admin.email = "hughku@gmail.com"
+# 1. Make a new instance of user
+person = person_pb2.Person()
 
+# 2. Assign value to a scalar field
+person.id = 7654321
+person.name = "Hugh"
+person.email = "hughku@gmail.com"
+
+#
+# - Repeated field
+#
 # method 1 - add a new repeated field
-phone = admin.phones.add()
+phone = person.phones.add()
 phone.number = "abc"
-phone.type = admin_pb2.Admin.PhoneType.WORK
+phone.type = person_pb2.Person.PhoneType.WORK
 
 # method 2 - add a new repeated field
-phone = admin_pb2.Admin.PhoneNumber(number="xyz", type=admin_pb2.Admin.PhoneType.HOME)
-admin.phones.extend([phone])
+phone = person_pb2.Person.PhoneNumber(number="xyz",
+                                      type=person_pb2.Person.PhoneType.HOME)
+person.phones.extend([phone])
 
+print(f"**** Processed message: \n{person}")
+#
+# - Read/Write from/to serialize message
+#
 # write and read message
 with open("simple_message.bin", "wb") as fp:
-    admin_sent = admin.SerializePartialToString()
-    fp.write(admin_sent)
+    person_sent = person.SerializePartialToString()
+    fp.write(person_sent)
 
 with open("simple_message.bin", "rb") as fp:
-    admin_received = admin_pb2.Admin()
-    admin_received.ParseFromString(fp.read())
-    print(admin_received)
+    person_received = person_pb2.Person()
+    person_received.ParseFromString(fp.read())
+    print(f"**** De-serialized message: \n{person_received}")

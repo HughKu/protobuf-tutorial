@@ -2,11 +2,11 @@ syntax = "proto3";
 
 message Birthday {
     int32 id = 1;
-    DaysOfTheWeek day = 2;
+    DayOfTheWeek day = 2;
     MonthOfTheYear month = 3;
 }
 
-enum DaysOfTheWeek {
+enum DayOfTheWeek {
     UNKNOWN_DAY = 0;
     MON = 1;
     TUE = 2;

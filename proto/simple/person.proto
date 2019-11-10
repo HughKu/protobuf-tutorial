@@ -3,7 +3,7 @@
  */
 syntax = "proto3";
 
-message Admin {
+message Person {
     string name = 1;
     int32 id = 2;
     string email = 3;

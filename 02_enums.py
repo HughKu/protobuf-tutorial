@@ -1,15 +1,22 @@
 from python.__generated__.enums import day_pb2
+
 #
 # Make a new instance of Admin
 #
+# 1. Make a new instance of Birthday
 birthday = day_pb2.Birthday()
 
+# 2. Assign value to a enum field
 birthday.day = day_pb2.DayOfTheWeek.FRI
-birthday.month = day_pb2.MonthOfTheYear.JUN
+birthday.month = day_pb2.MonthOfTheYear.OCT
+birthday.year = 1992
 
 print(birthday.day == day_pb2.DayOfTheWeek.FRI)
-print(birthday)
 
+print(f"**** Processed message: \n{birthday}")
+#
+# - Read/Write from/to serialize message
+#
 # write and read message
 with open("enum_message.bin", "wb") as fp:
     birthday_sent = birthday.SerializePartialToString()
@@ -18,4 +25,4 @@ with open("enum_message.bin", "wb") as fp:
 with open("enum_message.bin", "rb") as fp:
     birthday_received = day_pb2.Birthday()
     birthday_received.ParseFromString(fp.read())
-    print(birthday_received)
+    print(f"**** De-serialized message: \n{birthday}")

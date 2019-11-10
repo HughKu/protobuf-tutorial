@@ -4,6 +4,7 @@ message Birthday {
     int32 id = 1;
     DayOfTheWeek day = 2;
     MonthOfTheYear month = 3;
+    int32 year = 4;
 }
 
 enum DayOfTheWeek {

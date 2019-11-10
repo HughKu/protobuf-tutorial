@@ -3,7 +3,7 @@ from python.__generated__.simple import person_pb2
 #
 # - New message
 #
-# 1. Make a new instance of user
+# 1. Make a new instance of Person
 person = person_pb2.Person()
 
 # 2. Assign value to a scalar field
@@ -14,12 +14,12 @@ person.email = "hughku@gmail.com"
 #
 # - Repeated field
 #
-# method 1 - add a new repeated field
+# 1-1. add a new repeated field (method 1)
 phone = person.phones.add()
 phone.number = "abc"
 phone.type = person_pb2.Person.PhoneType.WORK
 
-# method 2 - add a new repeated field
+# 1-2. add a new repeated field (method 2)
 phone = person_pb2.Person.PhoneNumber(number="xyz",
                                       type=person_pb2.Person.PhoneType.HOME)
 person.phones.extend([phone])

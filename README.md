@@ -25,14 +25,14 @@ sudo unzip -o ${PROTOC_ZIP} -d /usr/local 'include/*'
 rm -f ${PROTOC_ZIP}
 ```
 
-### Compile
+### 3. Compile
 ```sh
 protoc -I=./proto --python_out=./proto ./proto/**/*.proto
 ```
 
 ## Run
 
-#### 1. Write a minimum example
+### 1. Write a minimum example
 
 ```python
 pass

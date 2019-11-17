@@ -1,0 +1,21 @@
+// Syntax should always be "proto3".
+syntax = "proto3";
+
+// A message of DataType.
+message DataType {
+  float data_float = 1;
+  double data_double = 2;
+  int32 data_int32 = 3;
+  int64 data_int64 = 4;
+  uint32 data_uint32 = 5;
+  uint64 data_uint64 = 6;
+  sint32 data_sint32 = 7;
+  sint64 data_sint64 = 8;
+  fixed32 data_fixed32 = 9;
+  fixed64 data_fixed64 = 10;
+  sfixed32 data_sfixed32 = 11;
+  sfixed64 data_sfixed64 = 12;
+  bool data_bool = 13;
+  string data_string = 14;
+  bytes data_bytes = 15;
+}

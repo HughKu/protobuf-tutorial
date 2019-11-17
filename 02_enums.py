@@ -27,4 +27,4 @@ with open("enum_message.bin", "wb") as fp:
 with open("enum_message.bin", "rb") as fp:
    birthday_received = day_pb2.Birthday()
    birthday_received.ParseFromString(fp.read())
-   print(f"**** De-serialized message: \n{birthday}")
+   print(f"**** De-serialized message: \n{birthday_received}")

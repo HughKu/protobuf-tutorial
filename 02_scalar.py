@@ -3,6 +3,7 @@ from python.__generated__.simple import scalar_pb2
 ####################################
 # - New message
 ####################################
+
 data_holders = scalar_pb2.DataType()
 # floating points
 data_holders.data_float = -1023

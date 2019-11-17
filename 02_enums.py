@@ -1,8 +1,9 @@
 from python.__generated__.enums import day_pb2
 
-#
-# Make a new instance of Admin
-#
+####################################
+# - New message
+####################################
+
 # 1. Make a new instance of Birthday
 birthday = day_pb2.Birthday()
 
@@ -10,12 +11,14 @@ birthday = day_pb2.Birthday()
 birthday.day = day_pb2.DayOfTheWeek.FRI
 birthday.month = day_pb2.MonthOfTheYear.OCT
 
-print(birthday.day == day_pb2.DayOfTheWeek.FRI)
-
+print(f"birthday.day == day_pb2.DayOfTheWeek.FRI: {birthday.day == day_pb2.DayOfTheWeek.FRI}\n")
 print(f"**** Processed message: \n{birthday}")
-#
+
+
+####################################
 # - Read/Write from/to serialize message
-#
+####################################
+
 # write and read message
 with open("enum_message.bin", "wb") as fp:
    birthday_sent = birthday.SerializePartialToString()

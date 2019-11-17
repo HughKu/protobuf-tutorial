@@ -3,13 +3,13 @@ syntax = "proto3";
 
 // A message of Birthday.
 message Birthday {
-  int32 id = 1;
+  uint32 id = 1;
   DayOfTheWeek day = 2;
   MonthOfTheYear month = 3;
-  int32 year = 4;
+  uint32 year = 4;
 }
 
-// An enum of MonthOfTheYear.
+// An enum of Month Of The Year.
 enum MonthOfTheYear {
   MONTH_OF_THE_YEAR_INVALID = 0;
   JAN = 1;
@@ -26,7 +26,7 @@ enum MonthOfTheYear {
   DEC = 12;
 }
 
-// An enum of DayOfTheWeek.
+// An enum of Day Of The Week.
 enum DayOfTheWeek {
   DAY_OF_THE_WEEK_INVALID = 0;
   DAY_OF_THE_WEEK_UNSET = 1;

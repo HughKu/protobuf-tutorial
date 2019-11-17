@@ -4,7 +4,7 @@ syntax = "proto3";
 // A message of Person.
 message Person {
   string name = 1;
-  int32 id = 2;
+  uint32 id = 2;
   string email = 3;
 
   // A nested message of PhoneNumber.

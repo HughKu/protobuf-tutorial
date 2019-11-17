@@ -23,6 +23,10 @@ data_holders.data_sfixed64 = 1023
 data_holders.data_string = "-1023"
 # boolean
 data_holders.data_bool = True
+#
+#TODO Figure out why the following is valid in run-time and the value is `false`.
+#
+# data_holders.data_bool = -11111
 # bytes
 data_holders.data_bytes = b'1023'
 

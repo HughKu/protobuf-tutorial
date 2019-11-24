@@ -1,20 +1,22 @@
-# import sys
-# sys.path.append("/Users/linker/Documents/HughKu/protobuf-tutorial/__generated__")
-# print(sys.path)
-
-# from __generated__.simple import any_pb2
-# from __generated__.simple import person_pb2
-
 from proto.simple import any_pb2
 from proto.simple import person_pb2
 
 ####################################
 # - New message
 ####################################
-data_any = any_pb2.ExtraType()
-data_any.person.CopyFrom(person_pb2.Person())
-#data_any.data_any.Pack({"Name": "Hugh"})
+extra = any_pb2.ExtraType()
+person = person_pb2.Person()
+person.name = "Hugh"
+person.id = 1234567
+person.email = "xxx@yyy.com"
 
+extra.person.CopyFrom(person)
+extra.data_any.Pack(person)
+
+if extra.data_any.Is(person_pb2.Person.DESCRIPTOR):
+   person_unpackes = person_pb2.Person()
+   extra.data_any.Unpack(person_unpackes)
+   print(person_unpackes)
 
 
 ####################################
@@ -23,7 +25,7 @@ data_any.person.CopyFrom(person_pb2.Person())
 
 # write and read message
 with open("simple_extra.bin", "wb") as fp:
-   data_sent = data_any.SerializePartialToString()
+   data_sent = extra.SerializePartialToString()
    fp.write(data_sent)
 
 with open("simple_extra.bin", "rb") as fp:

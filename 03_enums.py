@@ -1,4 +1,4 @@
-from python.__generated__.enums import day_pb2
+from proto.enums import day_pb2
 
 ####################################
 # - New message

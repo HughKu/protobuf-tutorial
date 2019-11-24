@@ -1,4 +1,5 @@
 **/.env
-**/__generated__
 **/__pycache__
+**/*_pb2.py
+**/*_pb2.pyi
 *.bin

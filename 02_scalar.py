@@ -1,4 +1,4 @@
-from python.__generated__.simple import scalar_pb2
+from proto.simple import scalar_pb2
 
 ####################################
 # - New message

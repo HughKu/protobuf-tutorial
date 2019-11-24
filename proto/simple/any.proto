@@ -1,0 +1,11 @@
+// Syntax should always be "proto3".
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "proto/simple/person.proto";
+
+// A message of ExtraType.
+message ExtraType {
+  google.protobuf.Any data_any = 1;
+  Person person = 2;
+}

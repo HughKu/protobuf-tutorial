@@ -24,11 +24,11 @@ if extra.data_any.Is(person_pb2.Person.DESCRIPTOR):
 ####################################
 
 # write and read message
-with open("simple_extra.bin", "wb") as fp:
+with open("wkt.bin", "wb") as fp:
    data_sent = extra.SerializePartialToString()
    fp.write(data_sent)
 
-with open("simple_extra.bin", "rb") as fp:
+with open("wkt.bin", "rb") as fp:
    data_received = any_pb2.ExtraType()
    data_received.ParseFromString(fp.read())
    print(f"**** De-serialized message: \n{data_received}")

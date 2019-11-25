@@ -1,10 +1,10 @@
-from proto.simple import any_pb2
+from proto.wkt import wkt_pb2
 from proto.simple import person_pb2
 
 ####################################
 # - New message
 ####################################
-extra = any_pb2.ExtraType()
+extra = wkt_pb2.WktType()
 person = person_pb2.Person()
 person.name = "Hugh"
 person.id = 1234567
@@ -29,6 +29,6 @@ with open("wkt.bin", "wb") as fp:
    fp.write(data_sent)
 
 with open("wkt.bin", "rb") as fp:
-   data_received = any_pb2.ExtraType()
+   data_received = wkt_pb2.WktType()
    data_received.ParseFromString(fp.read())
    print(f"**** De-serialized message: \n{data_received}")

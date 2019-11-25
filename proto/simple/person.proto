@@ -1,6 +1,8 @@
 // Syntax should always be "proto3".
 syntax = "proto3";
 
+package Human;
+
 // A message of Person.
 message Person {
   string name = 1;

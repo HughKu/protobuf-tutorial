@@ -7,5 +7,5 @@ import "proto/simple/person.proto";
 // A message of ExtraType.
 message ExtraType {
   google.protobuf.Any data_any = 1;
-  Person person = 2;
+  Human.Person person = 2;
 }

@@ -4,12 +4,14 @@ syntax = "proto3";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
+import "google/protobuf/struct.proto";
 import "proto/simple/person.proto";
 
 // A message of ExtraType.
 message WktType {
-  google.protobuf.Any data_any = 1;
-  Human.Person person = 2;
+  Human.Person person = 1;
+  google.protobuf.Any data_any = 2;
   google.protobuf.Timestamp data_timestamp = 3;
   google.protobuf.Duration data_duration = 4;
+  google.protobuf.Struct data_struct = 5;
 }

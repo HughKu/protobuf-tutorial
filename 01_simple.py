@@ -34,7 +34,7 @@ print(f"**** Processed message: \n{person}")
 
 # write and read message
 with open("simple_message.bin", "wb") as fp:
-  person_sent = person.SerializePartialToString()
+  person_sent = person.SerializeToString()
   fp.write(person_sent)
 
 with open("simple_message.bin", "rb") as fp:
